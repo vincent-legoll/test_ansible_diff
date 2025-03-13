@@ -1,0 +1,38 @@
+################################################################
+### Testing ansible-core==2.16
+################################################################
+
+PLAY [Test ansible difference filter] ******************************************
+
+TASK [debug] *******************************************************************
+ok: [localhost] => {
+    "msg": "diff with a string: ['one', 'two', 'six'] | difference('two')   => ['one', 'six', 'two']"
+}
+
+TASK [debug] *******************************************************************
+ok: [localhost] => {
+    "msg": "diff with a list:   ['one', 'two', 'six'] | difference(['two']) => ['one', 'six']"
+}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+################################################################
+### Testing ansible-core==2.15
+################################################################
+
+PLAY [Test ansible difference filter] ******************************************
+
+TASK [debug] *******************************************************************
+ok: [localhost] => {
+    "msg": "diff with a string: ['one', 'two', 'six'] | difference('two')   => ['one', 'six']"
+}
+
+TASK [debug] *******************************************************************
+ok: [localhost] => {
+    "msg": "diff with a list:   ['one', 'two', 'six'] | difference(['two']) => ['one', 'six']"
+}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

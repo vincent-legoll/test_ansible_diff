@@ -1,0 +1,24 @@
+---
+
+# The ansible `difference()` filter is documented here:
+# https://docs.ansible.com/ansible/latest/collections/ansible/builtin/difference_filter.html
+
+- name: Test ansible difference filter
+  hosts: localhost
+  gather_facts: false
+
+  vars:
+    alist:
+    - one
+    - two
+    - six
+
+  tasks:
+
+    - debug:
+        msg: "diff with a string: {{ alist }} | difference('two')   => {{ alist | difference('two') | sort }}"
+
+    - debug:
+        msg: "diff with a list:   {{ alist }} | difference(['two']) => {{ alist | difference(['two']) | sort }}"
+
+...
